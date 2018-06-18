@@ -5,8 +5,8 @@ let root;
 
 function setup() {
   // put setup code here
-  createCanvas(1260, 720);
-  root = new Tree(5, 2, 20);
+  createCanvas(640, 360);
+  root = new Tree(6, 2, 20);
   console.log(root);
 }
 
