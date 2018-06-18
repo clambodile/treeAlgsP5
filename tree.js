@@ -19,11 +19,10 @@ class Tree {
         let depth = this.depth + 1;
         let arity = this.arity;
         //determine x coordinates of nodes
-        let availableWidth = this.rightBound - this.leftBound;
         let columns = arity ** depth;
         let columnWidth = this.root.availableWidth / columns;
         let diameter = this.diameter;
-        let leftBound = this.leftBound + i * columnWidth + i * arity;
+        let leftBound = this.leftBound + i * columnWidth;
         let rightBound = leftBound + columnWidth * arity;
         let x = this.leftBound + i * columnWidth + columnWidth / 2;
         //determine y coordinate
