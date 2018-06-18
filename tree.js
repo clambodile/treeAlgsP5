@@ -22,13 +22,14 @@ class Tree {
         let availableWidth = this.rightBound - this.leftBound;
         let columns = arity ** depth;
         let columnWidth = this.root.availableWidth / columns;
+        let diameter = this.diameter;
         let leftBound = this.leftBound + i * columnWidth + i * arity;
         let rightBound = leftBound + columnWidth * arity;
         let x = this.leftBound + i * columnWidth + columnWidth / 2;
         //determine y coordinate
         let ySpacing = height / this.root.tHeight;
         let y = this.y + ySpacing;
-        this.children.push(new Tree(tHeight, arity, this.diameter, x, y, depth, this.root, this, leftBound, rightBound));
+        this.children.push(new Tree(tHeight, arity, diameter, x, y, depth, this.root, this, leftBound, rightBound));
       }
     }
   }
