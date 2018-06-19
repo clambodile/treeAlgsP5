@@ -1,5 +1,5 @@
 class Tree {
-  constructor({ tHeight, arity, diameter, x = width / 2, y = diameter, depth = 0, root = this, parent = null, leftBound = diameter, rightBound = width - diameter } = options) {
+  constructor({ tHeight, arity, diameter, x = width / 2, y = diameter, depth = 0, root = this, parent = null, leftBound = diameter, rightBound = width - diameter }) {
     this.tHeight = tHeight;
     this.depth = depth;
     this.arity = arity;
