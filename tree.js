@@ -1,5 +1,5 @@
 class Tree {
-  constructor(tHeight, arity, diameter, x = width / 2, y = diameter, depth = 0,root = this, parent = null, leftBound = diameter, rightBound = width - diameter) {
+  constructor({ tHeight, arity, diameter, x = width / 2, y = diameter, depth = 0, root = this, parent = null, leftBound = diameter, rightBound = width - diameter } = options) {
     this.tHeight = tHeight;
     this.depth = depth;
     this.arity = arity;
@@ -12,6 +12,7 @@ class Tree {
     this.leftBound = leftBound;
     this.rightBound = rightBound;
     this.availableWidth = rightBound - leftBound;
+    this.fontSize = this.diameter;
 
     if (this.tHeight > 1) {
       for (let i = 0; i < arity; i++) {
@@ -28,15 +29,17 @@ class Tree {
         //determine y coordinate
         let ySpacing = height / this.root.tHeight;
         let y = this.y + ySpacing;
-        this.children.push(new Tree(tHeight, arity, diameter, x, y, depth, this.root, this, leftBound, rightBound));
+        this.children.push(new Tree({ tHeight, arity, diameter, x, y, depth, root: this.root, parent: this, leftBound, rightBound }));
       }
     }
   }
 
   draw() {
     this.children.forEach(child => {
-      line(this.x, this.y, child.x, child.y);
-      child.draw();
+      if (child) {
+        line(this.x, this.y, child.x, child.y);
+        child.draw();
+      }
     });
     ellipse(this.x, this.y, this.diameter, this.diameter);
   }
